@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+
+{% block title %}Contacto - Camila{% endblock %}
+
+{% block content %}
+<section class="min-h-[calc(100vh-10rem)] flex items-center w-full">
+    <div class="w-full grid grid-cols-1 lg:grid-cols-[1fr_1.6fr_1fr] gap-8 items-center">
+
+        <!-- COLUMNA IZQUIERDA: Título + descripción -->
+        <div class="flex flex-col justify-center gap-6 lg:pr-6">
+            <!-- Eyebrow -->
+            <div class="flex items-center gap-3">
+                <span class="w-8 h-[1px] bg-neon-accent block"></span>
+                <span class="text-[10px] uppercase tracking-[0.3em] text-neon-accent font-semibold">Contacto</span>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl font-black leading-tight">
+                INICIAR<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-accent to-neon-pink">CONEXIÓN</span>
+            </h1>
+
+            <p class="text-sm text-gray-400 font-light leading-relaxed">
+                Abierta a colaboraciones,<br>instalaciones sonoras<br>y comisiones.
+            </p>
+
+            <!-- Separador decorativo -->
+            <div class="w-12 h-[1px] bg-white/10"></div>
+
+            <!-- Canales sociales -->
+            <div>
+                <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-5">Otros canales</p>
+                <ul class="space-y-4">
+
+                    <li>
+                        <a href="https://instagram.com/camy_miszka" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center group-hover:border-neon-accent group-hover:bg-neon-accent/10 transition-all duration-300 shrink-0">
+                                <svg class="w-4 h-4 text-gray-400 group-hover:text-neon-accent transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-gray-500">Instagram</span>
+                                <span class="block text-sm font-medium text-white group-hover:text-neon-accent transition-colors">@camy_miszka</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:cs.miszka@gmail.com" class="group flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center group-hover:border-neon-accent group-hover:bg-neon-accent/10 transition-all duration-300 shrink-0">
+                                <svg class="w-4 h-4 text-gray-400 group-hover:text-neon-accent transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-gray-500">Email Directo</span>
+                                <span class="block text-sm font-medium text-white group-hover:text-neon-accent transition-colors">cs.miszka@gmail.com</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:+5491161843397" class="group flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center group-hover:border-neon-accent group-hover:bg-neon-accent/10 transition-all duration-300 shrink-0">
+                                <svg class="w-4 h-4 text-gray-400 group-hover:text-neon-accent transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-gray-500">Teléfono</span>
+                                <span class="block text-sm font-medium text-white group-hover:text-neon-accent transition-colors">+54 9 116 184 3397</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- COLUMNA CENTRAL: Formulario -->
+        <div class="glass-panel p-7">
+            <!-- Header del panel -->
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-2 h-2 rounded-full bg-neon-accent animate-pulse"></div>
+                <span class="text-[10px] uppercase tracking-[0.25em] text-gray-400">Nuevo mensaje</span>
+            </div>
+
+            <!-- Mensaje de éxito (oculto por defecto) -->
+            <div id="success-msg" class="hidden mb-4 p-4 rounded-lg border border-neon-accent/30 bg-neon-accent/10 text-neon-accent text-sm text-center">
+                ✅ ¡Mensaje enviado! Te responderé a la brevedad.
+            </div>
+
+            <form id="contact-form"
+                  action="https://formspree.io/f/TU_FORM_ID"
+                  method="POST"
+                  class="space-y-4">
+
+                <!-- Campo oculto: email destino -->
+                <input type="hidden" name="_replyto" value="cs.miszka@gmail.com">
+                <input type="hidden" name="_subject" value="Nuevo mensaje desde el portfolio">
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="name" class="block text-[10px] uppercase tracking-widest text-gray-500 mb-1.5">Nombre</label>
+                        <input type="text" id="name" name="name" required
+                            class="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-neon-accent focus:ring-1 focus:ring-neon-accent/50 transition-colors"
+                            placeholder="Tu nombre">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-[10px] uppercase tracking-widest text-gray-500 mb-1.5">Email</label>
+                        <input type="email" id="email" name="email" required
+                            class="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-neon-accent focus:ring-1 focus:ring-neon-accent/50 transition-colors"
+                            placeholder="tu@email.com">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="subject" class="block text-[10px] uppercase tracking-widest text-gray-500 mb-1.5">Asunto</label>
+                    <input type="text" id="subject" name="subject"
+                        class="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-neon-accent focus:ring-1 focus:ring-neon-accent/50 transition-colors"
+                        placeholder="Colaboración / Comisión / Consulta...">
+                </div>
+
+                <div>
+                    <label for="message" class="block text-[10px] uppercase tracking-widest text-gray-500 mb-1.5">Mensaje / Propuesta</label>
+                    <textarea id="message" name="message" rows="5" required
+                        class="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-neon-accent focus:ring-1 focus:ring-neon-accent/50 transition-colors resize-none"
+                        placeholder="Cuéntame sobre tu proyecto..."></textarea>
+                </div>
+
+                <button type="submit" id="submit-btn"
+                    class="w-full py-3 bg-neon-accent/10 border border-neon-accent/30 text-neon-accent text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-neon-accent hover:text-black hover:shadow-[0_0_20px_rgba(157,78,221,0.35)] transition-all duration-300">
+                    Enviar Mensaje →
+                </button>
+            </form>
+
+            <script>
+                const form = document.getElementById('contact-form');
+                const successMsg = document.getElementById('success-msg');
+                const submitBtn = document.getElementById('submit-btn');
+
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    submitBtn.textContent = 'Enviando...';
+                    submitBtn.disabled = true;
+
+                    const data = new FormData(form);
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: data,
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        form.reset();
+                        successMsg.classList.remove('hidden');
+                        submitBtn.textContent = '✓ Enviado';
+                    } else {
+                        submitBtn.textContent = 'Error, intentá de nuevo';
+                        submitBtn.disabled = false;
+                    }
+                });
+            </script>
+        </div>
+
+        <!-- COLUMNA DERECHA: Disponibilidad / Estado -->
+        <div class="flex flex-col gap-6 lg:pl-6">
+
+            <!-- Tipo de trabajo -->
+            <div class="glass-panel p-5">
+                <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-4">Áreas de trabajo</p>
+                <ul class="space-y-2.5">
+                    <li class="flex items-center gap-2.5 text-xs text-gray-300">
+                        <span class="w-1 h-1 rounded-full bg-neon-accent shrink-0"></span>
+                        Composición electroacústica
+                    </li>
+                    <li class="flex items-center gap-2.5 text-xs text-gray-300">
+                        <span class="w-1 h-1 rounded-full bg-neon-accent shrink-0"></span>
+                        Música para audiovisual
+                    </li>
+                    <li class="flex items-center gap-2.5 text-xs text-gray-300">
+                        <span class="w-1 h-1 rounded-full bg-neon-accent shrink-0"></span>
+                        Talleres y residencias
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </div>
+</section>
+{% endblock %}

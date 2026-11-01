@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Camila - Medios Electroacústicos{% endblock %}</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'experimental-dark': '#0a0a0a',
+                'neon-accent': '#9d4edd', /* Vibrant Violet */
+                'neon-pink': '#c77dff',   /* Lighter Purple */
+              },
+              fontFamily: {
+                'sans': ['Inter', 'sans-serif'],
+                'display': ['Cormorant Garamond', 'serif'],
+              },
+              animation: {
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'glow': 'glow 2s ease-in-out infinite alternate',
+              },
+              keyframes: {
+                glow: {
+                  '0%': { boxShadow: '0 0 5px #9d4edd, 0 0 10px #9d4edd' },
+                  '100%': { boxShadow: '0 0 20px #9d4edd, 0 0 30px #9d4edd' },
+                }
+              }
+            }
+          }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+          body {
+            @apply bg-experimental-dark text-gray-200 font-sans selection:bg-neon-accent selection:text-white antialiased overflow-x-hidden;
+            background-image: linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.9)), url('/static/img/forest_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+          }
+          h1, h2, h3, h4, h5, h6 { @apply font-display tracking-tight text-white; }
+        }
+        @layer components {
+          .glass-panel { @apply bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-2xl; }
+          .nav-link { @apply text-sm uppercase tracking-widest text-gray-400 hover:text-neon-accent transition-colors duration-300 relative; }
+          .nav-link::after { content: ''; @apply absolute -bottom-1 left-0 w-0 h-[2px] bg-neon-accent transition-all duration-300; }
+          .nav-link:hover::after { @apply w-full; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative">
+
+    <!-- Noise Overlay for experimental texture -->
+    <div class="pointer-events-none fixed inset-0 z-50 opacity-[0.03]" style="background-image: url('https://grainy-gradients.vercel.app/noise.svg');"></div>
+
+    <!-- Navigation -->
+    <nav class="w-full fixed top-0 z-40 bg-experimental-dark/90 backdrop-blur-lg border-b border-white/5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-5 py-3 flex justify-between items-center">
+
+            <!-- Open to Work (solo desktop) -->
+            <span class="hidden md:inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-neon-accent/30 bg-neon-accent/10 text-neon-accent text-[10px] font-semibold tracking-widest uppercase">
+                <span class="w-1.5 h-1.5 rounded-full bg-neon-accent animate-pulse"></span>
+                Open to Work
+            </span>
+
+            <!-- Nav links (solo desktop) -->
+            <div class="hidden md:flex gap-10">
+                <a href="{{ url_for('index') }}#obras" class="nav-link text-xs">Proyectos</a>
+                <a href="{{ url_for('about') }}" class="nav-link text-xs">Sobre Mí</a>
+                <a href="{{ url_for('contact') }}" class="nav-link text-xs">Contacto</a>
+            </div>
+
+            <!-- Escuchar Obras (solo desktop) -->
+            <a href="https://drive.google.com/drive/folders/1xL-VxlOuvMxFXobdiP5Iga1xDY62hk4q"
+               target="_blank" rel="noopener noreferrer"
+               class="hidden md:inline-flex items-center px-4 py-1.5 rounded-full border border-neon-accent/30 bg-neon-accent/10 text-neon-accent text-[10px] font-semibold tracking-widest uppercase hover:bg-neon-accent hover:text-black transition-all duration-300">
+                Escuchar Obras
+            </a>
+
+            <!-- Mobile: nombre + hamburguesa -->
+            <span class="md:hidden text-white font-display text-base tracking-wide">Camila Miszka</span>
+            <button id="menu-btn" onclick="toggleMenu()" class="md:hidden text-white focus:outline-none p-1 z-50 relative">
+                <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+             class="md:hidden hidden flex-col gap-0 bg-experimental-dark/95 backdrop-blur-xl border-t border-white/5">
+            <a href="{{ url_for('index') }}#obras" onclick="closeMenu()"
+               class="px-6 py-4 text-sm uppercase tracking-widest text-gray-300 hover:text-neon-accent hover:bg-white/5 border-b border-white/5 transition-colors">
+                Proyectos
+            </a>
+            <a href="{{ url_for('about') }}" onclick="closeMenu()"
+               class="px-6 py-4 text-sm uppercase tracking-widest text-gray-300 hover:text-neon-accent hover:bg-white/5 border-b border-white/5 transition-colors">
+                Sobre Mí
+            </a>
+            <a href="{{ url_for('contact') }}" onclick="closeMenu()"
+               class="px-6 py-4 text-sm uppercase tracking-widest text-gray-300 hover:text-neon-accent hover:bg-white/5 border-b border-white/5 transition-colors">
+                Contacto
+            </a>
+            <!-- Pills mobile -->
+            <div class="px-6 py-5 flex flex-col gap-3">
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neon-accent/30 bg-neon-accent/10 text-neon-accent text-[10px] font-semibold tracking-widest uppercase w-fit">
+                    <span class="w-1.5 h-1.5 rounded-full bg-neon-accent animate-pulse"></span>
+                    Open to Work
+                </span>
+                <a href="https://drive.google.com/drive/folders/1xL-VxlOuvMxFXobdiP5Iga1xDY62hk4q"
+                   target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center px-4 py-2 rounded-full border border-neon-accent/30 bg-neon-accent/10 text-neon-accent text-[10px] font-semibold tracking-widest uppercase w-fit hover:bg-neon-accent hover:text-black transition-all duration-300">
+                    Escuchar Obras
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const iconOpen = document.getElementById('icon-open');
+            const iconClose = document.getElementById('icon-close');
+            const isHidden = menu.classList.contains('hidden');
+            if (isHidden) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+                iconOpen.classList.add('hidden');
+                iconClose.classList.remove('hidden');
+            } else {
+                closeMenu();
+            }
+        }
+        function closeMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const iconOpen = document.getElementById('icon-open');
+            const iconClose = document.getElementById('icon-close');
+            menu.classList.add('hidden');
+            menu.classList.remove('flex');
+            iconOpen.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+        }
+    </script>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-16 px-6 pb-20 max-w-7xl mx-auto w-full flex flex-col relative z-10">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="border-t border-white/10 bg-black/50 backdrop-blur-md pt-6 pb-24 md:pb-6 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left">
+            <p class="text-gray-600 text-xs font-mono tracking-widest uppercase">Berazategui, Buenos Aires</p>
+            <div class="flex flex-col items-center gap-1">
+                <p class="text-gray-500 text-sm font-sans">© 2026 Miszka Pascuali, Compositora</p>
+                <p class="text-gray-500 text-sm font-sans">Hecho con ❤️ por <a href="https://portfolioarguello.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-neon-pink transition-colors">Micaela Argüello</a></p>
+            </div>
+            <div class="hidden md:block w-40"></div>
+        </div>
+    </footer>
+
+    <!-- Floating CV Button -->
+    <a href="{{ url_for('static', filename='Camila Miszka-CV.docx') }}" download="Camila Miszka-CV.docx" class="group fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full border border-neon-pink/30 bg-neon-pink/20 text-neon-pink hover:bg-neon-pink hover:text-black shadow-[0_0_15px_rgba(199,125,255,0.3)] hover:shadow-[0_0_25px_rgba(199,125,255,0.6)] backdrop-blur-md transition-all duration-300 transform hover:scale-110">
+        <!-- Musical Note SVG -->
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+        <!-- Tooltip -->
+        <span class="absolute right-full mr-4 top-1/2 -translate-y-1/2 w-max px-3 py-2 bg-black/90 backdrop-blur border border-white/20 rounded-lg text-xs text-white font-semibold tracking-wide uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Descarga mi hoja de ruta</span>
+    </a>
+
+</body>
+</html>

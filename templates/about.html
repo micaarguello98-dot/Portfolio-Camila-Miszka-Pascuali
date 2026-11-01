@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block title %}Sobre Mí - Camila{% endblock %}
+
+{% block content %}
+
+<!-- Etiqueta superior -->
+<div class="flex items-center gap-3 mb-6 mt-4">
+    <span class="w-6 h-[1px] bg-neon-accent"></span>
+    <span class="text-neon-accent tracking-[0.25em] text-xs font-semibold uppercase">Conóceme</span>
+</div>
+
+<!-- Nombre y rol -->
+<div class="mb-6">
+    <h1 class="text-3xl md:text-4xl font-black text-white leading-tight mb-1">Camila Miszka Pascuali</h1>
+    <p class="text-neon-accent font-mono text-xs tracking-[0.2em] uppercase">Compositora // Investigadora</p>
+</div>
+
+<!-- Separador -->
+<div class="h-px bg-gradient-to-r from-white/10 via-white/5 to-transparent mb-6"></div>
+
+<!-- Grid principal: bio + sidebar -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+
+    <!-- Bio: ocupa 2/3 en desktop -->
+    <div class="lg:col-span-2 space-y-4 text-gray-400 font-light text-sm md:text-base leading-relaxed">
+        <p class="text-gray-100">
+            Como estudiante avanzada de la <strong class="text-white font-semibold">Licenciatura en Composición con Medios Electroacústicos</strong>, mi trabajo se centra en la intersección entre el sonido natural y su abstracción sintética.
+        </p>
+        <p>
+            Cuento con sólida experiencia en producción musical, grabación, mezcla, sonido en vivo, arreglos de partitura y orquestación.
+        </p>
+        <p>
+            Especializada en proyectos interdisciplinarios, composición híbrida (instrumentos acústicos y nuevas tecnologías), docencia universitaria e investigación en música contemporánea.
+        </p>
+        <p>
+            De perfil analítico, creativo y adaptable a entornos colaborativos, artes escénicas, medios audiovisuales y proyectos multimedia.
+        </p>
+    </div>
+
+    <!-- Sidebar: áreas de trabajo -->
+    <div class="lg:col-span-1">
+        <p class="text-xs font-bold text-white uppercase tracking-[0.2em] flex items-center gap-2 mb-3">
+            <span class="w-4 h-[1px] bg-neon-accent"></span> Áreas de Trabajo
+        </p>
+        <div class="space-y-2">
+            <div class="flex items-center gap-3 px-3 py-2.5 bg-white/[0.03] border border-white/5 rounded-lg hover:border-neon-accent/20 transition-all duration-200">
+                <div class="w-1.5 h-1.5 rounded-full bg-neon-accent flex-shrink-0"></div>
+                <span class="text-gray-300 text-sm">Composición Electroacústica</span>
+            </div>
+            <div class="flex items-center gap-3 px-3 py-2.5 bg-white/[0.03] border border-white/5 rounded-lg hover:border-neon-pink/20 transition-all duration-200">
+                <div class="w-1.5 h-1.5 rounded-full bg-neon-pink flex-shrink-0"></div>
+                <span class="text-gray-300 text-sm">Música para Audiovisual</span>
+            </div>
+            <div class="flex items-center gap-3 px-3 py-2.5 bg-white/[0.03] border border-white/5 rounded-lg hover:border-neon-accent/20 transition-all duration-200">
+                <div class="w-1.5 h-1.5 rounded-full bg-neon-accent flex-shrink-0"></div>
+                <span class="text-gray-300 text-sm">Talleres y Residencias</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reconocimiento -->
+<div class="relative bg-white/[0.03] border border-neon-accent/20 rounded-xl p-5 mb-6 overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-neon-accent to-neon-pink"></div>
+    <div class="flex items-start gap-4">
+        <div class="flex-shrink-0 w-9 h-9 rounded-full bg-neon-accent/10 border border-neon-accent/25 flex items-center justify-center text-base">
+            🏆
+        </div>
+        <div>
+            <p class="text-neon-accent text-xs font-semibold uppercase tracking-widest mb-1">Reconocimiento</p>
+            <p class="text-gray-200 text-sm leading-relaxed">
+                Nominada a las premiaciones <strong class="text-white">"Lo que vendrá"</strong> con la obra <em class="text-neon-accent">"La niebla"</em> en la categoría <strong class="text-white">composición acústica o electroacústica</strong>.
+            </p>
+            <p class="text-gray-500 text-xs mt-2 leading-relaxed">
+                Premio estímulo organizado por la <span class="text-gray-400">Universidad Nacional de Quilmes (UNQ)</span>, a través de su Escuela Universitaria de Artes (EUdA), en el marco del Festival de Artes Digitales Lo que vendrá.
+            </p>
+            <!-- Reproductor de audio -->
+            <div class="mt-4">
+                <p class="text-neon-accent text-xs uppercase tracking-widest font-semibold mb-2">🎧 Escuchar obra</p>
+                <audio controls class="w-full">
+                    <source src="{{ url_for('static', filename='audio/La niebla.mp3') }}" type="audio/mpeg">
+                    Tu navegador no soporta la reproducción de audio.
+                </audio>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reconocimiento 2 -->
+<div class="relative bg-white/[0.03] border border-neon-pink/20 rounded-xl p-5 mb-6 overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-neon-pink to-neon-accent"></div>
+    <div class="flex items-start gap-4">
+        <div class="flex-shrink-0 w-9 h-9 rounded-full bg-neon-pink/10 border border-neon-pink/25 flex items-center justify-center text-base">
+            🎶
+        </div>
+        <div>
+            <p class="text-neon-pink text-xs font-semibold uppercase tracking-widest mb-1">Selección</p>
+            <p class="text-gray-200 text-sm leading-relaxed">
+                Seleccionada en la convocatoria del festival <strong class="text-white">"Semana de la música contemporánea MDO V° edición"</strong> para la creación de obras para flauta en colaboración con la <strong class="text-white">Mgter. Patricia García</strong>.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Habilidades Técnicas -->
+<div>
+    <p class="text-xs font-bold text-white uppercase tracking-[0.2em] flex items-center gap-2 mb-3">
+        <span class="w-4 h-[1px] bg-neon-pink"></span> Habilidades Técnicas
+    </p>
+    <div class="grid grid-cols-2 gap-3">
+        <div class="bg-white/[0.02] border border-white/5 hover:border-neon-pink/30 rounded-xl p-4 transition-all duration-200 hover:bg-white/[0.04] group">
+            <div class="flex items-center gap-2 mb-1.5">
+                <svg class="w-4 h-4 text-neon-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
+                <h4 class="text-white font-medium uppercase text-xs tracking-wide">Software de Audio</h4>
+            </div>
+            <p class="text-gray-400 text-xs">Reaper, Ableton Live, Pro Tools</p>
+        </div>
+        <div class="bg-white/[0.02] border border-white/5 hover:border-neon-accent/30 rounded-xl p-4 transition-all duration-200 hover:bg-white/[0.04] group">
+            <div class="flex items-center gap-2 mb-1.5">
+                <svg class="w-4 h-4 text-neon-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                <h4 class="text-white font-medium uppercase text-xs tracking-wide">Notación Musical</h4>
+            </div>
+            <p class="text-gray-400 text-xs">Sibelius, MuseScore</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
