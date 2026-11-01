@@ -39,14 +39,18 @@
           }
         }
     </script>
+    <style>
+        body {
+            background-image: linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.9)), url('{{ url_for("static", filename="img/forest_bg.jpg") }}') !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-attachment: fixed !important;
+        }
+    </style>
     <style type="text/tailwindcss">
         @layer base {
           body {
             @apply bg-experimental-dark text-gray-200 font-sans selection:bg-neon-accent selection:text-white antialiased overflow-x-hidden;
-            background-image: linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.9)), url('/static/img/forest_bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
           }
           h1, h2, h3, h4, h5, h6 { @apply font-display tracking-tight text-white; }
         }
