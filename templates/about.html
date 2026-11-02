@@ -79,6 +79,7 @@
             <div class="mt-4">
                 <p class="text-neon-accent text-xs uppercase tracking-widest font-semibold mb-2">🎧 Escuchar obra</p>
                 <audio controls class="w-full">
+                    <source src="{{ url_for('static', filename='audio/la-niebla.mp3') }}" type="audio/mpeg">
                     <source src="{{ url_for('static', filename='audio/La niebla.mp3') }}" type="audio/mpeg">
                     Tu navegador no soporta la reproducción de audio.
                 </audio>
